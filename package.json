@@ -1,5 +1,5 @@
 {
-  "name": "fastmcp",
+  "name": "manual-session-log",
   "version": "1.0.0",
   "description": "A lightweight, in-memory logging library for capturing and managing logs during manual testing phases.",
   "main": "index.js",
@@ -9,8 +9,9 @@
   "keywords": [
     "logging",
     "testing",
-    "mcp",
-    "manual-testing"
+    "manual-testing",
+    "session",
+    "log"
   ],
   "author": "Jules",
   "license": "ISC",

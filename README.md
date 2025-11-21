@@ -1,12 +1,12 @@
-# fastmcp
+# manual-session-log
 
 A lightweight, in-memory logging library designed for capturing and managing logs during manual testing phases.
 
-## Why `fastmcp`?
+## Why `manual-session-log`?
 
 During manual testing, it's often necessary to inspect the internal state of an application at specific points. While you could use `console.log`, this can lead to cluttered terminal output and makes it hard to separate test-specific logs from other application output.
 
-`fastmcp` provides a simple, in-memory logging solution to address this. It allows you to:
+`manual-session-log` provides a simple, in-memory logging solution to address this. It allows you to:
 
 -   **Record** structured logs from anywhere in your code.
 -   **Retrieve** all captured logs at the end of a test session.
@@ -17,7 +17,7 @@ This is particularly useful when an AI or an automated script needs to collect l
 ## Installation
 
 ```bash
-npm install fastmcp
+npm install manual-session-log
 ```
 
 ## API
@@ -33,8 +33,8 @@ Records a log message. Each log is stored as an object containing a `timestamp` 
 **Example:**
 
 ```javascript
-const mcp = require('fastmcp');
-mcp.log('User has clicked the login button.');
+const sessionLog = require('manual-session-log');
+sessionLog.log('User has clicked the login button.');
 ```
 
 ### `getLogs()`
@@ -46,7 +46,7 @@ Retrieves a copy of all stored logs.
 **Example:**
 
 ```javascript
-const logs = mcp.getLogs();
+const logs = sessionLog.getLogs();
 console.log(logs);
 // Output:
 // [
@@ -64,23 +64,23 @@ Clears all logs from memory. This is useful for resetting the state between test
 **Example:**
 
 ```javascript
-mcp.clearLogs();
-const logs = mcp.getLogs(); // logs is now []
+sessionLog.clearLogs();
+const logs = sessionLog.getLogs(); // logs is now []
 ```
 
 ## Full Usage Example
 
-Here's how you might use `fastmcp` in a project.
+Here's how you might use `manual-session-log` in a project.
 
 **`your-app-module.js`**
 ```javascript
-const mcp = require('fastmcp');
+const sessionLog = require('manual-session-log');
 
 function performUserAction() {
   console.log('Performing some complex action...');
-  mcp.log('Starting the user action.');
+  sessionLog.log('Starting the user action.');
   // ... business logic ...
-  mcp.log('User action completed successfully.');
+  sessionLog.log('User action completed successfully.');
 }
 
 module.exports = { performUserAction };
@@ -88,7 +88,7 @@ module.exports = { performUserAction };
 
 **`run-test.js`**
 ```javascript
-const mcp = require('fastmcp');
+const sessionLog = require('manual-session-log');
 const { performUserAction } = require('./your-app-module');
 
 // --- Human Tester Starts ---
@@ -99,13 +99,13 @@ performUserAction();
 
 // At the end of the test, the AI or test runner can retrieve the logs.
 console.log('\n--- Test Complete ---');
-const capturedLogs = mcp.getLogs();
+const capturedLogs = sessionLog.getLogs();
 console.log('Captured Logs:');
 console.log(JSON.stringify(capturedLogs, null, 2));
 
 // Clean up for the next run.
-mcp.clearLogs();
+sessionLog.clearLogs();
 console.log('\nLogs have been cleared.');
-const logsAfterClear = mcp.getLogs();
+const logsAfterClear = sessionLog.getLogs();
 console.log('Current logs:', logsAfterClear);
 ```
