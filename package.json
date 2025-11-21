@@ -1,19 +1,26 @@
 {
-  "name": "manual-session-log",
+  "name": "app",
   "version": "1.0.0",
-  "description": "A lightweight, in-memory logging library for capturing and managing logs during manual testing phases.",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node example.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "logging",
-    "testing",
-    "manual-testing",
-    "session",
-    "log"
-  ],
-  "author": "Jules",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/958877748/user_test_log.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/958877748/user_test_log/issues"
+  },
+  "homepage": "https://github.com/958877748/user_test_log#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.22.0",
+    "fastmcp": "^3.23.1",
+    "zod": "^4.1.12"
+  }
 }
