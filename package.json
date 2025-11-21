@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "user_test_log",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,13 +13,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/958877748/user_test_log/issues"
   },
   "homepage": "https://github.com/958877748/user_test_log#readme",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.22.0",
+    "express": "^5.1.0",
     "fastmcp": "^3.23.1",
     "zod": "^4.1.12"
   }
